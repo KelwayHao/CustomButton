@@ -8,16 +8,29 @@
 
     <com.example.custombutton.CustomButton
         android:id="@+id/customButton"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:buttonColor="@color/beige"
+        app:text="Custom Button" />
+
+    <com.example.custombutton.CustomButton
+        android:id="@+id/customButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:buttonColor="@color/beige"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="Vladick ne tankist BOLSHE" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="fsdfdffffdffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customButton" />
