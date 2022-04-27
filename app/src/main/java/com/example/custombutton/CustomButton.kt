@@ -17,11 +17,8 @@ class CustomButton(context: Context, attributeSet: AttributeSet) : View(context,
         const val TEXT_SIZE = 48f
     }
 
-    private val buttonPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = context.getColor(R.color.purple_200)
-    }
+    private val buttonPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val strokeButtonPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = context.getColor(R.color.teal_200)
         style = Paint.Style.STROKE
         strokeWidth = CONTOUR_THICKNESS
     }
