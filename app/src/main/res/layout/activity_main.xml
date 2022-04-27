@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/gray">
 
     <com.example.custombutton.CustomButton
         android:id="@+id/customButton"
@@ -14,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:buttonColor="@color/beige"
-        app:text="Custom Button" />
+        app:text="Shop now" />
 
     <com.example.custombutton.CustomButton
         android:id="@+id/customButton2"

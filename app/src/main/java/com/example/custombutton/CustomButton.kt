@@ -1,20 +1,18 @@
 package com.example.custombutton
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.Path
-import android.graphics.Rect
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 
 class CustomButton(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
 
     companion object {
-        const val MARGIN_TEXT = 40f
-        const val CONTOUR_THICKNESS = 4f
-        const val MARGIN_STROKE = 4f + CONTOUR_THICKNESS / 2f
+        const val MARGIN_TEXT = 50f
+        const val CONTOUR_THICKNESS = 2f
+        const val MARGIN_STROKE = 8f + CONTOUR_THICKNESS / 2f
         const val TEXT_SIZE = 48f
+        const val COEFFICIENT_INCLINE = 0.4f
     }
 
     private val buttonPaint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -33,13 +31,14 @@ class CustomButton(context: Context, attributeSet: AttributeSet) : View(context,
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = TEXT_SIZE
         color = context.getColor(R.color.black)
+        typeface = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD)
     }
 
     private var text: String
 
     init {
         context.theme.obtainStyledAttributes(attributeSet, R.styleable.CustomButton, 0, 0).apply {
-            text = getString(R.styleable.CustomButton_text).toString()
+            text = getString(R.styleable.CustomButton_text).toString().uppercase()
             buttonColor = getColor(R.styleable.CustomButton_buttonColor, R.style.Theme_CustomButton)
         }
     }
@@ -62,12 +61,12 @@ class CustomButton(context: Context, attributeSet: AttributeSet) : View(context,
                 centerY + centerTextHeight + MARGIN_TEXT
             )
             lineTo(
-                centerX + centerTextWidth + MARGIN_TEXT / 2,
+                centerX + centerTextWidth + MARGIN_TEXT * COEFFICIENT_INCLINE,
                 centerY + centerTextHeight + MARGIN_TEXT
             )
             lineTo(centerX + centerTextWidth + MARGIN_TEXT, centerY)
             lineTo(
-                centerX + centerTextWidth + MARGIN_TEXT / 2,
+                centerX + centerTextWidth + MARGIN_TEXT * COEFFICIENT_INCLINE,
                 centerY - centerTextHeight - MARGIN_TEXT
             )
             close()
@@ -84,12 +83,12 @@ class CustomButton(context: Context, attributeSet: AttributeSet) : View(context,
                 centerY + centerTextHeight + MARGIN_TEXT + MARGIN_STROKE
             )
             lineTo(
-                centerX + centerTextWidth + MARGIN_TEXT / 2 + MARGIN_STROKE / 2,
+                centerX + centerTextWidth + MARGIN_TEXT * COEFFICIENT_INCLINE + MARGIN_STROKE / 2,
                 centerY + centerTextHeight + MARGIN_TEXT + MARGIN_STROKE
             )
             lineTo(centerX + centerTextWidth + MARGIN_TEXT + MARGIN_STROKE, centerY)
             lineTo(
-                centerX + centerTextWidth + MARGIN_TEXT / 2 + MARGIN_STROKE / 2,
+                centerX + centerTextWidth + MARGIN_TEXT * COEFFICIENT_INCLINE + MARGIN_STROKE / 2,
                 centerY - centerTextHeight - MARGIN_TEXT - MARGIN_STROKE
             )
             close()
